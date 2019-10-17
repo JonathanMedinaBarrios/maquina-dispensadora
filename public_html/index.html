@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/vis.min.js"></script>
+        <link href="css/vis.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+       
+        <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/skins/web/dhtmlx.css"/>
+        <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/css/metodos.css"/>
+        <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/codebase/fonts/font_roboto/roboto.css"/>
+        <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/codebase/fonts/font_awesome/css/font-awesome.min.css"/>
+        <script src="recursos/dhtmlx/codebase/dhtmlx.js"></script>
+        
+        <style type="text/css">
+            #mynetwork {
+                width: 900px;
+                height: 600px;
+            }
+            html, body {
+                width: 100%;      /*provides the correct work of a full-screen layout*/ 
+                height: 100%;     /*provides the correct work of a full-screen layout*/
+                overflow: hidden; /*hides the default body's space*/
+                margin: 0px;      /*hides the body's scrolls*/
+            }
+        </style>
+        
+    </head>
+    <body>
+        
+        <div id="maquina" >
+            <img class="img" id="machine" src="img/Machine.png" alt=""/>
+            <img class="img" id="product1" src="img/Chips.png" alt=""/>
+            <img class="img" id="product2" src="img/m_m.png" alt=""/>
+            <img class="img" id="product3" src="img/Juice.png" alt=""/>
+            <img class="img" id="product4" src="img/Cookies.png" alt=""/>
+            <img class="img" id="product5" src="img/Soda.png" alt=""/>
+            <p id="cont">000</p>
+        </div>
+        
+        <div id="mynetwork"></div>
+        
+        <script type="text/javascript">
+            
+
+            var main_layout = new dhtmlXLayoutObject(document.body, '2U');
+            var a = main_layout.cells('a');
+            a.setWidth(550);
+            
+            //var b = main_layout.cells('b');
+            //var layout_1 = b.attachLayout('2E');
+            
+            var numOpcion = 2800/100; 
+    
+            var estados = new Array(numOpcion);
+
+            for (var i = 0; i < numOpcion; i++) {
+                var a1 = 100*(i + 1);
+                var a2 = 100*(i + 2);
+                var a5 = 100*(i + 5);
+                var a10 = 100*(i + 10);
+
+                if (a1 > numOpcion*100) {
+                    a1 = '';
+                };
+                if (a2 > numOpcion*100) {
+                    a2 = '';
+                };
+                if (a5 > numOpcion*100) {
+                    a5 = '';
+                };
+                if (a10 > numOpcion*100) {
+                    a10 = '';
+                };
+
+                var obj = {
+                    alf_1: a1,
+                    alf_2: a2,
+                    alf_5: a5,
+                    alf_10: a10
+                };
+                estados[i] = obj;
+            }
+            var string = ""; 
+
+             estados.forEach(function callback(element,i) {
+                 if (element.alf_1 !="" ) {
+                         string+= i+"00->"+element.alf_1+";" ; 
+                    };
+                    if (element.alf_2 !="") {
+                        string+= i+"00->"+element.alf_2+";" ; 
+                    };
+                    if (element.alf_5 !="") {
+                        string+= i+"00->"+element.alf_5+";" ; 
+                    };
+                    if (element.alf_10 !="") {
+                        string+= i+"00->"+element.alf_10+";" ; 
+                    };
+                });
+                var newString = string.substring(0, string.length- 1);
+                var ultimoValor = numOpcion*100; 
+                var container = document.getElementById("mynetwork");
+                var dot = "dinetwork {node[shape=circle]\n\
+                                     edge [length=100, color=gray, fontcolor=black]\n\
+                                      ;"+newString +";0[fontcolor=white,color=red,];"+ultimoValor+"[fontcolor=white,color=purple,]}";
+                 
+                var data = vis.network.convertDot(dot);
+                
+                var network = new vis.Network(container, data);
+                
+                //var obj = document.getElementById("mynetwork");
+                main_layout.cells('a').hideHeader();
+                main_layout.cells('b').hideHeader();
+                
+                main_layout.cells('a').attachObject("maquina");
+                
+                main_layout.cells('b').attachObject("mynetwork");
+                
+                network.selectNodes(['0']) ; 
+        </script>
+    </body>
+</html>
