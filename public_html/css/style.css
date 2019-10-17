@@ -1,0 +1,89 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 7/09/2019, 09:41:20 AM
+    Author     : José Ríos
+*/
+body{
+    position: absolute;
+    background-color: #F5F8FF;
+    height: 100%;
+    width: 100%;
+    margin:0;
+    padding:0;
+}
+.left{
+    position: absolute;
+    display: fixed;
+    width: 40%;
+    height: 100%;
+    background-color: #ede3d3;
+}
+.right_top{
+    position: absolute;
+    display: fixed;
+    width: 59%;
+    height: 49%;
+    left: 41%;
+    background-color: #FFFFFF;
+}
+.right_bottom{
+    position: absolute;
+    display: fixed;
+    width: 59%;
+    height: 49%;
+    left: 41%;
+    top: 51%;
+    background-color: #FFFFFF;
+}
+.img{
+    position: absolute;
+    display: fixed;
+}
+#machine{
+    width: 90%;
+    left: 5%;
+    top: 5%;
+    -webkit-transform: none;
+}
+#product1, #product2, #product3, #product4, #product5{
+    width: 9%;
+    cursor: pointer;
+}
+#product1{
+    top: 14%;
+    left: 21%;
+}
+#product2{
+    top: 14%;
+    left: 42%;
+    width: 11%;
+}
+#product3{
+    top: 28%;
+    left: 22%;
+    width: 7%;
+}
+#product4{
+    top: 28%;
+    left: 44%;
+}
+#product5{
+    top: 43%;
+    left: 23%;
+    width: 5%;
+}
+.img:hover {
+  transform: scale(1.5);
+}
+#cont{
+    color: #6ff542;
+    display: flex;
+    position: fixed;
+    left: 30%;
+    top: 19%;
+    font-size: 270%;
+}

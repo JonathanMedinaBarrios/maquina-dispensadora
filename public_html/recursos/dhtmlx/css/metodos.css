@@ -1,0 +1,56 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 21/05/2019, 08:35:01 AM
+    Author     : JONATHAN MEDINA BARRIOS
+*/
+.dhx_dataview .dhx_dataview_default_item, .dhx_dataview .dhx_dataview_default_item_selected{
+    border-right:0;
+}
+.dhx_dataview_default_item_selected {
+    background-color: #fbfbfb;
+    border-left:3px #ff7f00 solid;
+}
+.property{
+    font-family:tahoma;
+    padding-bottom: 5px;
+    padding-right: 15px;
+    flex-shrink: 0;
+}
+div[dhx_f_id="-1"] .card:not(:hover) > .info-card {
+    display: flex;
+    align-items: center;
+}
+.card .property > spam {
+    font-size: 12px;
+    display: block;
+}
+
+<!-- Documento CSS-->
+form {
+    width: 10%;
+    max-width: 20px;
+    text-align: center;
+    border: solid 1px #c2c2c2;
+    padding-bottom: 10px;
+    margin: auto;
+    background:-ms-linear-gradient(top,#e2efff 0,#d3e7ff 12%,#e7f1ff 100%);
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+    background-color: #3da0e3;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    font-size: 16px;
+    min-width: 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+input[type=button]:hover, input[type=submit]:hover, input[type=reset]:hover {
+    background-color: #333;
+}
