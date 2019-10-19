@@ -54,7 +54,7 @@ body{
     cursor: pointer;
 }
 #product1{
-    top: 14%;
+    top: 14.5%;
     left: 21%;
 }
 #product2{
@@ -63,16 +63,16 @@ body{
     width: 11%;
 }
 #product3{
-    top: 28%;
+    top: 29%;
     left: 22%;
     width: 7%;
 }
 #product4{
-    top: 28%;
+    top: 29%;
     left: 44%;
 }
 #product5{
-    top: 43%;
+    top: 44%;
     left: 23%;
     width: 5%;
 }
@@ -83,7 +83,41 @@ body{
     color: #6ff542;
     display: flex;
     position: fixed;
-    left: 30%;
+    left: 30.8%;
     top: 19%;
     font-size: 270%;
+    font-family: DJB Get Digital;
+}
+#cover{
+    width: 60.4%;
+    left: 5%;
+    top: 59%;
+    -webkit-transform: none;
+}
+.price{
+    display: flex;
+    position: fixed;
+    
+    font-size: 100%;
+    font-family: Gill Sans MT Condensed;
+}
+#price1{
+    left: 9.8%;
+    top: 23.8%;
+}
+#price2{
+    left: 19%;
+    top: 23.8%;
+}
+#price3{
+    left: 9.8%;
+    top: 37.6%;
+}
+#price4{
+    left: 19%;
+    top: 37.6%;
+}
+#price5{
+    left: 9.8%;
+    top: 51.3%;
 }
