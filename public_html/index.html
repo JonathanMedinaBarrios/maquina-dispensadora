@@ -18,6 +18,7 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/codebase/fonts/font_roboto/roboto.css"/>
         <link rel="stylesheet" type="text/css" href="recursos/dhtmlx/codebase/fonts/font_awesome/css/font-awesome.min.css"/>
         <script src="recursos/dhtmlx/codebase/dhtmlx.js"></script>
+        <script src="recursos/metodos.js"></script>
 
         <style type="text/css">
             #mynetwork {
@@ -37,108 +38,43 @@ and open the template in the editor.
 
         <div id="maquina" >
             <img class="img" id="machine" src="img/Machine.png" alt=""/>
-            <img class="img" id="product1" src="img/Chips.png" alt=""/>
-            <img class="img" id="product2" src="img/m_m.png" alt=""/>
-            <img class="img" id="product3" src="img/Juice.png" alt=""/>
-            <img class="img" id="product4" src="img/Cookies.png" alt=""/>
-            <img class="img" id="product5" src="img/Soda.png" alt=""/>
-            <img class="img" id="cover" src="img/Tapa.png" alt=""/>
+            <img class="img" id="product1" src="img/Chips.png" alt="" onclick="genera('price1')"/>
+            <img class="img" id="product2" src="img/m_m.png" alt="" onclick="genera('price2')"/>
+            <img class="img" id="product3" src="img/Juice.png" alt="" onclick="genera('price3')"/>
+            <img class="img" id="product4" src="img/Cookies.png" alt="" onclick="genera('price4')"/>
+            <img class="img" id="product5" src="img/Soda.png" alt="" onclick="genera('price5')"/>
+            <img class="img" id="cover" src="img/Tapa.png" alt="" />
 
-            <p id="cont">000</p>
-            <p class="price" id="price1">1.200</p>
-            <p class="price" id="price2">2.300</p>
-            <p class="price" id="price3">1.700</p>
-            <p class="price" id="price4">2.100</p>
-            <p class="price" id="price5">1.300</p>
+            <p id="cont">0</p>
+            <input class="price" id="price1" value="2500" style="width: 30px"/>
+            <input class="price" id="price2" value="500" style="width: 30px"/>
+            <input class="price" id="price3" value="1200" style="width: 30px"/>
+            <input class="price" id="price4" value="900" style="width: 30px"/>
+            <input class="price" id="price5" value="4500" style="width: 30px"/>
         </div>
 
         <div id="mynetwork"></div>
 
         <div id="coins">
-            <img class="coin" id="100p" src="img/100p.png" alt=""/>
-            <img class="coin" id="200p" src="img/200p.png" alt=""/>
-            <img class="coin" id="500p" src="img/500p.png" alt=""/>
-            <img class="coin" id="1000p" src="img/1000p.png" alt=""/>
+            <img class="coin" id="100p" src="img/100p.png" alt="" onclick="selectMoneda(100)"/>
+            <img class="coin" id="200p" src="img/200p.png" alt="" onclick="selectMoneda(200)"/>
+            <img class="coin" id="500p" src="img/500p.png" alt="" onclick="selectMoneda(500)"/>
+            <img class="coin" id="1000p" src="img/1000p.png" alt="" onclick="selectMoneda(1000)"/>
         </div>
-
+        
         <script type="text/javascript">
 
 
             var main_layout = new dhtmlXLayoutObject(document.body, '2U');
             var a = main_layout.cells('a');
-            a.setWidth(550);
+            a.setWidth(560);
 
             //var b = main_layout.cells('b');
             //var layout_1 = b.attachLayout('2E');
 
             //REALICÈ UN CAMBIO
 
-            var numOpcion = 2800 / 100;
 
-            var estados = new Array(numOpcion);
-
-            for (var i = 0; i < numOpcion; i++) {
-                var a1 = 100 * (i + 1);
-                var a2 = 100 * (i + 2);
-                var a5 = 100 * (i + 5);
-                var a10 = 100 * (i + 10);
-
-                if (a1 > numOpcion * 100) {
-                    a1 = '';
-                }
-                ;
-                if (a2 > numOpcion * 100) {
-                    a2 = '';
-                }
-                ;
-                if (a5 > numOpcion * 100) {
-                    a5 = '';
-                }
-                ;
-                if (a10 > numOpcion * 100) {
-                    a10 = '';
-                }
-                ;
-
-                var obj = {
-                    alf_1: a1,
-                    alf_2: a2,
-                    alf_5: a5,
-                    alf_10: a10
-                };
-                estados[i] = obj;
-            }
-            var string = "";
-
-            estados.forEach(function callback(element, i) {
-                if (element.alf_1 != "") {
-                    string += i + "00->" + element.alf_1 + ";";
-                }
-                ;
-                if (element.alf_2 != "") {
-                    string += i + "00->" + element.alf_2 + ";";
-                }
-                ;
-                if (element.alf_5 != "") {
-                    string += i + "00->" + element.alf_5 + ";";
-                }
-                ;
-                if (element.alf_10 != "") {
-                    string += i + "00->" + element.alf_10 + ";";
-                }
-                ;
-            });
-            var newString = string.substring(0, string.length - 1);
-            var ultimoValor = numOpcion * 100;
-            var container = document.getElementById("mynetwork");
-            
-            var dot = "dinetwork {node[shape=circle]\n\
-                                     edge [length=100, color=gray, fontcolor=black]\n\
-                                      ;" + newString + ";0[fontcolor=white,color=red,];" + ultimoValor + "[fontcolor=white,color=purple,]}";
-
-            var data = vis.network.convertDot(dot);
-
-            var network = new vis.Network(container, data);
 
             //var obj = document.getElementById("mynetwork");
             main_layout.cells('a').hideHeader();
@@ -150,20 +86,18 @@ and open the template in the editor.
 
             var b = main_layout.cells('b');
             var layout_1 = b.attachLayout('2E');
-            
-            
+
+
             var c = layout_1.cells('a');
             c.hideHeader();
             c.attachObject("mynetwork");
             c.setHeight(450);
-            
-            
-             var d = layout_1.cells('b');
+
+
+            var d = layout_1.cells('b');
             d.hideHeader();
             d.attachObject("coins");
 
-            
-            network.selectNodes(['0']);
         </script>
     </body>
 </html>
