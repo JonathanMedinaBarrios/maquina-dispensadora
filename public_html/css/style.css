@@ -97,30 +97,40 @@ body{
 .price{
     display: flex;
     position: fixed;
-    
     font-size: 100%;
     font-family: Gill Sans MT Condensed;
+    background: none;
+    text-align: center;
+    border-style: none;
+    height: 1.5%;
 }
 #price1{
-    left: 9.8%;
-    top: 23.8%;
+    left: 9.9%;
+    top: 27%;
 }
 #price2{
-    left: 19%;
-    top: 23.8%;
+    left: 19.2%;
+    top: 27.3%;
 }
 #price3{
     left: 9.8%;
-    top: 37.6%;
+    top: 41%;
 }
 #price4{
-    left: 19%;
-    top: 37.6%;
+    left: 19.2%;
+    top: 41%;
 }
 #price5{
     left: 9.8%;
-    top: 51.3%;
+    top: 55.5%;
 }
 .coin{
+    top: 5%;
+    width: 12%;
+}
+#insert{
+    width: 20%;
+}
+#reclamar{
     width: 20%;
 }
