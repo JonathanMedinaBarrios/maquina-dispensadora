@@ -14,7 +14,7 @@ function genera(price) {
             ok: "Si", cancel: "No",
             callback: function (result) {
                   if (result) {
-                      enerarAutomata(price); 
+                      generarAutomata(price); 
                   }
             }
         });
@@ -97,15 +97,15 @@ function generarAutomata(price) {
     network.selectNodes(['0']);
 }
 
-function selectMoneda(modena) {
+function selectMoneda(moneda) {
 
-    if (acumulado + modena <= valor) {
+    if (acumulado + moneda <= valor) {
 
         var str = document.getElementById("cont").innerHTML;
-        var res = str.replace(acumulado, acumulado + modena);
+        var res = str.replace(acumulado, acumulado + moneda);
         document.getElementById("cont").innerHTML = res;
 
-        acumulado += modena;
+        acumulado += moneda;
 
         network.selectNodes(['' + acumulado]);
 
