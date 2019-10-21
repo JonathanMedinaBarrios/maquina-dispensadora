@@ -2,10 +2,11 @@
 var valor = 0;
 var acumulado = 0;
 var network;
+var  idImagen ; 
 /************* FUNCIONES EPECIALES  ****************/
 
-function genera(price) {
-
+function genera(price,id) {
+    
     if (valor > 0) {
         dhtmlx.confirm({
             title: "Confirmación",
@@ -15,16 +16,20 @@ function genera(price) {
             callback: function (result) {
                   if (result) {
                       generarAutomata(price); 
+                      idImagen = id ; 
                   }
             }
         });
     }else{
         generarAutomata(price); 
+        idImagen = id ; 
     }
 }
 
 function generarAutomata(price) {
-
+    
+    document.getElementById("cont").innerHTML="&nbsp;"+0;
+    acumulado = 0;
     valor = document.getElementById(price).value;
 
     var numOpcion = valor / 100;
@@ -95,6 +100,7 @@ function generarAutomata(price) {
     network = new vis.Network(container, data);
 
     network.selectNodes(['0']);
+    
 }
 
 function selectMoneda(moneda) {
@@ -114,6 +120,27 @@ function selectMoneda(moneda) {
             title: "Error!",
             type: "alert-error",
             text: "La cantidad ingresada supera el  valor del producto"
+        });
+    }
+}
+
+function reclamar(){
+    
+    if(valor == acumulado){
+         
+        $('#'+idImagen).css("-webkit-transform", "scale(3,3)");
+        $('#'+idImagen).css("z-index", "150");
+        $('#'+idImagen).css("-webkit-transition-timing-function", "ease-out");
+        $('#'+idImagen).css("-webkit-transition-duration", "100ms");
+        $('#'+idImagen).css("-moz-transform", "scale(1,1)");
+        $('#'+idImagen).css("-moz-transition-timing-function", "ease-out");
+        $('#'+idImagen).css("-moz-transition-duration", "100ms");
+        
+    }else{
+        dhtmlx.alert({
+            title: "Error!",
+            type: "alert-error",
+            text: "La cantidad ingresada insuficiente valor del producto"
         });
     }
 }

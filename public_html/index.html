@@ -10,6 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="js/vis.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
         <link href="css/vis.min.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
 
@@ -35,22 +36,22 @@ and open the template in the editor.
 
     </head>
     <body>
-
+         
         <div id="maquina" >
             <img class="img" id="machine" src="img/Machine.png" alt=""/>
-            <img class="img" id="product1" src="img/Chips.png" alt="" onclick="genera('price1')"/>
-            <img class="img" id="product2" src="img/m_m.png" alt="" onclick="genera('price2')"/>
-            <img class="img" id="product3" src="img/Juice.png" alt="" onclick="genera('price3')"/>
-            <img class="img" id="product4" src="img/Cookies.png" alt="" onclick="genera('price4')"/>
-            <img class="img" id="product5" src="img/Soda.png" alt="" onclick="genera('price5')"/>
+            <img class="img" id="product1" src="img/Chips.png" alt="" onclick="genera('price1',this.id)"/>
+            <img class="img" id="product2" src="img/m_m.png" alt="" onclick="genera('price2',this.id)"/>
+            <img class="img" id="product3" src="img/Juice.png" alt="" onclick="genera('price3',this.id)"/>
+            <img class="img" id="product4" src="img/Cookies.png" alt="" onclick="genera('price4',this.id)"/>
+            <img class="img" id="product5" src="img/Soda.png" alt="" onclick="genera('price5',this.id)"/>
             <img class="img" id="cover" src="img/Tapa.png" alt="" />
 
-            <p id="cont">0</p>
-            <input class="price" id="price1" value="2500" style="width: 30px"/>
-            <input class="price" id="price2" value="500" style="width: 30px"/>
-            <input class="price" id="price3" value="1200" style="width: 30px"/>
-            <input class="price" id="price4" value="900" style="width: 30px"/>
-            <input class="price" id="price5" value="4500" style="width: 30px"/>
+            <p id="cont">&nbsp;0</p>
+            <input class="price" id="price1" value="2500" style="width: 35px"/>
+            <input class="price" id="price2" value="500" style="width: 35px"/>
+            <input class="price" id="price3" value="1200" style="width: 35px"/>
+            <input class="price" id="price4" value="900" style="width: 35px"/>
+            <input class="price" id="price5" value="4500" style="width: 35px"/>
         </div>
 
         <div id="mynetwork"></div>
@@ -60,8 +61,8 @@ and open the template in the editor.
             <img class="coin" id="200p" src="img/200p.png" alt="" onclick="selectMoneda(200)"/>
             <img class="coin" id="500p" src="img/500p.png" alt="" onclick="selectMoneda(500)"/>
             <img class="coin" id="1000p" src="img/1000p.png" alt="" onclick="selectMoneda(1000)"/>
-            <img id="insert" src="img/Insert.png" alt=""/>
-            <img id="reclamar" src="img/Reclamar.png" alt=""/>
+            <!--<img id="insert" src="img/Insert.png" alt=""/>-->
+            <img id="reclamar" src="img/Reclamar.png" alt="" onclick="reclamar()"/>
         </div>
         
         <script type="text/javascript">
@@ -69,7 +70,7 @@ and open the template in the editor.
 
             var main_layout = new dhtmlXLayoutObject(document.body, '2U');
             var a = main_layout.cells('a');
-            a.setWidth(560);
+            a.setWidth(575);
 
             //var b = main_layout.cells('b');
             //var layout_1 = b.attachLayout('2E');
